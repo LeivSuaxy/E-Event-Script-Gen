@@ -17,7 +17,7 @@ tables = [
     'Categories',
 ]
 
-server_images = 'http://localhost:8080/images/'
+server_images = '/images/'
 
 def get_core():
     url = os.getenv("DB_URL")
