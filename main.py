@@ -1,6 +1,6 @@
 import random
 from faker import Faker
-from sqlalchemy import create_engine, MetaData, Table, select
+from sqlalchemy import create_engine, MetaData, select
 from sqlalchemy.orm import sessionmaker, Session
 import os
 from dotenv import load_dotenv
@@ -158,7 +158,7 @@ def gen_events(metadata: MetaData, session: Session):
             'Title': faker.name(),
             'ImageUrl': server_images + random.choice(events_images),
             'Description': faker.text(max_nb_chars=200),
-            'Date': faker.date_time_this_year(),
+            'Date': faker.date_time_between(start_date='+5d', end_date='+20d'),
             'IsPublished': True,
             'RequireAcceptance': False,
             'LimitParticipants': random.randint(20, 100),
